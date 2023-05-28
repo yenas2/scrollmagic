@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .section {
+            width: 100%;
+        }
+        .container {
+            position: relative;
+            max-width: 1200px;
+            height: 900px;
+            padding: 50px;
+            margin: auto;
+            background-color: rgb(203, 135, 235);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section:nth-child(even) {
+            background-color: rgb(209, 220, 232);
+        }
+        h1 {
+            color: white;
+            font-size: 150px;
+            position: absolute;
+            top: 0;
+            margin: 0;
+        }
+        .box {
+            top: 0;
+            width: 400px;
+            height: 400px;
+            margin: 10px;
+        }
+        .about1, .about2 {
+            margin-top: 50px;
+            height: 500px;
+        }
+        .pamphlet1, .pamphlet2 {
+            margin-top: 100px;
+            height: 300px;
+        }
+        .banner1, .banner2 {
+            margin-top: 100px;
+            height: 500px;
+        }
+        .poster1, .poster2 {
+            margin-top: 100px;
+            height: 500px;
+        }
+        
+        .back-to-position {
+            /* opacity : 0; */
+            transition: 1s;
+        }
+        .back-to-position.to-right {
+            transform: translateX(-150px);
+        }
+        .back-to-position.to-left {
+            transform: translateX(150px);
+        }
+        .show .back-to-position {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .show .back-to-position.delay-0 {
+            transition-delay: 0s;
+        }
+        .show .back-to-position.delay-1 {
+            transition-delay: .3s;
+        }
+        .con {
+            position: relative;
+            max-width: 1200px;
+            height: 700px;
+            padding: 50px;
+            margin: auto;
+            background-color: rgb(203, 135, 235);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .name {
+            margin-top: 200px;
+            text-align: center;
+            color: rgb(233, 255, 195);
+        }
+    </style>
+</head>
+<body>
+    <section class="section scroll-spy">
+        <div class="con">
+            <h1 class="name">HwangYena Portfolio</h1>
+        </div>
+    </section>
+    <section class="section scroll-spy">
+        <div class="container">
+            <h1>About me</h1>
+            <div class="box back-to-position to-right delay-0"><img src="image/스크린샷(75).png" alt class="about1"></div>
+            <div class="box back-to-position to-left delay-1"><img src="image/2201110335_B_황예나_자기소개.jpg" alt class="about2"></div>
+        </div>
+    </section>
+    
+    <section class="section scroll-spy">
+        <div class="container">
+            <h1>Pamphlet</h1>
+            <div class="box back-to-position to-right delay-0"><img src="image/팜플렛1.jpg" alt class="pamphlet1"></div>
+            <div class="box back-to-position to-left delay-1"><img src="image/팜플렛2.jpg" alt class="pamphlet2"></div>
+        </div>
+    </section>
+
+    <section class="section scroll-spy">
+        <div class="container">
+            <h1>Poster</h1>
+            <div class="box back-to-position to-right delay-0"><img src="image/반값 (2).jpg" alt class="poster1"></div>
+            <div class="box back-to-position to-left delay-1"><img src="image/반값 (1).jpg" alt class="poster1"></div>
+        </div>
+    </section>
+
+
+    
+    <script>
+        const spyEls = document.querySelectorAll('.section.scroll-spy')
+        const controller = new ScrollMagic.Controller();
+
+            spyEls.forEach(function (spyEl) {
+                new ScrollMagic
+                    .Scene({
+                        triggerElement: spyEl
+                    })
+                    .setClassToggle(spyEl, 'show')
+                    .addTo(controller);
+            });
+
+    </script>
+
+
+
+</body>
+</html>
